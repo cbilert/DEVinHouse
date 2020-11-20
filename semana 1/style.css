@@ -15,6 +15,11 @@ p {
 
 .btnAvancar {
     background-image: url("img/avancar.png");
+    background-repeat: no-repeat;
+    background-position: center;
     height: 48px;
     width: 48px;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid black;
+    margin-top: 20px;
 }
