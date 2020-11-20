@@ -12,3 +12,10 @@ h1 {
 p {
     font-size: 14px !important;
 }
+
+.btnAvancar {
+    background-image: url("img/avancar.png");
+    height: 48px;  
+    width: 48px;
+    border: 0;
+}
