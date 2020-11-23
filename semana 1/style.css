@@ -26,3 +26,8 @@ p {
     border: 2px solid black;
     margin-top: 20px;
 }
+
+.imgbox img{
+    width: 33%;
+    height: auto;
+}
