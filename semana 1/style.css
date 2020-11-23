@@ -28,7 +28,37 @@ p {
     border-radius: 10px;
 }
 
+.imgbox {
+    display: flex;
+}
+
 .imgbox img{
     width: 33%;
     height: auto;
 }
+
+.videobox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.videobox iframe {
+    width: 600px;
+    height: 400px;
+}
+
+.videobox h2 {
+    text-align: center;
+}
+
+.videobox p {
+    text-align: justify;
+    width: 50%;
+}
+
+
