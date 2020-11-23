@@ -23,8 +23,9 @@ p {
     height: 48px;
     width: 48px;
     padding: 10px 10px 10px 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-top: 20px;
+    border-radius: 10px;
 }
 
 .imgbox img{
