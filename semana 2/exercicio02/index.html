@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 02 - Exercicio 02</title>
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+          <a href="#" onclick="redirect();">Ir para os Exercicios da Semana 01</a>    
+        </div>
+    </div>
+</body>
+<style>
+.container { 
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    border: 3px solid darkgreen;
+    border-radius: 10px;
+    padding: 10px;
+}
+a:hover {
+    background-color: green;
+    color: honeydew;
+}
+</style>
+<script>
+    function redirect() {
+        var redirecionar_url = '../../semana 1/index.html';
+        var redirecionar = confirm("Deseja ir para os Exercicios da Semana 01 ?");
+        if (redirecionar == true) {
+        window.location.href = redirecionar_url;
+        }
+    }
+</script>
+</html>
