@@ -57,10 +57,9 @@ p {
     padding: 10px;
 }
 
-.videobox iframe {
-    position: sticky;
-    width: 50%;
-    height: 50%;
+.videobox video {
+    width: 90%;
+    height: 90%;
 }
 
 .videobox h2 {
