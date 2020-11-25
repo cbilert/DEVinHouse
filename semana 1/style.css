@@ -1,5 +1,6 @@
 body {
     background-color: yellow;
+    margin: 0px;
 }
 
 h1 {
@@ -14,6 +15,11 @@ h1 {
 
 p {
     font-size: 14px !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.form {
+    padding: 35px;
 }
 
 .btnAvancar {
@@ -54,6 +60,7 @@ p {
 
 .videobox h2 {
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .videobox p {
@@ -61,4 +68,51 @@ p {
     width: 50%;
 }
 
+.logo {
+    overflow: hidden;
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.menu {
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+
+}
+
+.menu-nv1 {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+.menu-nv1 .menu-item {float: left;}
+  
+.menu-nv1 .menu-item .menu-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .menu-nv1 .menu-item .menu-link:hover:not(.active) {background-color: #111;}
+  
+  .menu-nv1 .menu-item .menu-link.active {background-color: #4CAF50;}
+  
+  .menu-nv1 .logo .menu-item.right {float: right;}
+  
+  @media screen and (max-width: 600px) {
+    .menu-nv1 .menu-item.right, 
+    .menu-nv1 .menu-item {float: none;}
+    .logo {display: none;}
+  }
 
