@@ -36,6 +36,8 @@ p {
 
 .imgbox {
     display: flex;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
 .imgbox img{
@@ -110,9 +112,20 @@ p {
   
   .menu-nv1 .logo .menu-item.right {float: right;}
   
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .menu-nv1 .menu-item.right, 
     .menu-nv1 .menu-item {float: none;}
     .logo {display: none;}
-  }
+}
 
+footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    background-color: rgba(90, 90, 39, 0.548);   
+}
+footer img {
+    align-self: center;
+    width: 392px;
+}
