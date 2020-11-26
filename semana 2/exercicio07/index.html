@@ -1,0 +1,28 @@
+<!-- Faça 2 prompts ao usuário:
+No primeiro, pergunte o ano de nascimento.
+No segundo, pergunte o ano atual.
+
+Em seguida, exiba na tela um alert contendo o texto “Sua idade é x ou y”, 
+onde x é a idade do usuário caso ele já tenha feito aniversário neste ano, 
+e y é a idade caso ele ainda não tenha aniversariado no ano corrente. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 02 - exercicio 07</title>
+
+    <script>
+        window.onload = function init() {
+            var anoNasc = prompt("Olá, digite o ano do seu nascimento.");
+            var anoAtual = prompt("Qual o ano atual?");//new Date().getFullYear();
+            var idade = anoAtual - anoNasc;
+            alert(`Sua idade é ${idade-1} ou ${idade}`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
