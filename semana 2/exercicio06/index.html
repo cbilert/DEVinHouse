@@ -1,0 +1,25 @@
+<!-- Pergunte ao usuário seu último sobrenome e 
+    em seguida exiba na tela um alert contendo o texto 
+    “Olá, X. Seu sobrenome contém y letras”, 
+    onde X é o sobrenome em letras maiúsculas, 
+    e y é a quantidade de letras desse sobrenome. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 02 - Exercicio 06</title>
+    <script>
+
+        window.onload = function init(){
+            var surname = prompt("Olá, por favor, insira seu sobrenome.");
+            alert(`Olá ${surname.toUpperCase()}. Seu sobrenome contém ${surname.length} letras.`);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
