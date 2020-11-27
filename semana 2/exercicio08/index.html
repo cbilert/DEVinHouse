@@ -1,0 +1,106 @@
+<!-- Faça uma página HTML contendo um label que exiba a mensagem 
+    “Insira sua data de nascimento”, um campo de texto que só permita inserir data (dica: input type date) 
+    e um botão rotulado “calcular idade”.
+    Programe uma função a ser executada quando o usuário clicar no botão, 
+    que faça o cálculo da idade do usuário, e então exiba a idade em um 
+    texto na página HTML. -->
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Semana 02 - Exercicio 08</title>
+    </head>
+    <style>
+    .form {
+        margin: 35px;
+        padding: 35px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border: 1px solid saddlebrown;
+        background-color: rgb(248, 222, 203);
+        position: absolute;
+        vertical-align: middle;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    </style>
+    <body>
+        <div class="form">
+            <label for="dataNasc">Insira sua data de nascimento: </label>
+            <input type="date" id="dataNasc"/>
+            <button onclick="calcularIdade();">Calcular Idade</button>
+            <p id="result"></p>
+        </div> 
+        <script>
+            function calcularIdade() {
+                var dataNasc  = new Date(document.getElementById('dataNasc').value);
+                var dataAtual = new Date();
+                
+                console.log(`anos          : ${anosDiff(dataNasc,dataAtual)}`);
+                console.log(`meses         : ${mesesDiff(dataNasc,dataAtual)}`);
+                console.log(`semanas       : ${semanasDiff(dataNasc,dataAtual)}`);
+                console.log(`dias          : ${diasDiff(dataNasc,dataAtual)}`);
+                console.log(`horas         : ${horasDiff(dataNasc,dataAtual)}`);
+                console.log(`minutos       : ${minutosDiff(dataNasc,dataAtual)}`);
+                console.log(`segundos      : ${segundosDiff(dataNasc,dataAtual)}`);
+
+                document.getElementById('result').innerHTML += `<br>anos        : ${anosDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>meses       : ${mesesDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>semanas     : ${semanasDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>dias        : ${diasDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>horas       : ${horasDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>minutos     : ${minutosDiff(dataNasc,dataAtual)}`;
+                document.getElementById('result').innerHTML += `<br>segundos    : ${segundosDiff(dataNasc,dataAtual)}`;
+            }
+
+            function segundosDiff(d1, d2) {
+                let millisecondDiff = d2 - d1;
+                let secDiff = Math.floor( ( d2 - d1) / 1000 );
+                return secDiff;
+            }
+
+            function minutosDiff(d1, d2) {
+                let segundos = segundosDiff(d1, d2);
+                let minutosDiff = Math.floor( segundos / 60 );
+                return minutosDiff;
+            }
+
+            function horasDiff(d1, d2) {
+                let minutos = minutosDiff(d1, d2);
+                let horasDiff = Math.floor( minutos / 60 );
+                return horasDiff;
+            }
+
+            function diasDiff(d1, d2) {
+                let horas = horasDiff(d1, d2);
+                let diasDiff = Math.floor( horas / 24 );
+                return diasDiff;
+            }
+
+            function semanasDiff(d1, d2) {
+                let dias = diasDiff(d1, d2);
+                let semanasDiff = Math.floor( dias/ 7 );
+                return semanasDiff;
+            }
+
+            function anosDiff(d1, d2) {
+                let date1 = new Date(d1);
+                let date2 = new Date(d2);
+                let anosDiff =  date2.getFullYear() - date1.getFullYear();
+                return anosDiff;
+            }
+
+            function mesesDiff(d1, d2) {
+                let date1 = new Date(d1);
+                let date2 = new Date(d2);
+                let anos = anosDiff(d1, d2);
+                let meses =(anos * 12) + (date2.getMonth() - date1.getMonth()) ;
+                return meses;
+            }
+        </script>
+    </body>
+    </html>
+    
