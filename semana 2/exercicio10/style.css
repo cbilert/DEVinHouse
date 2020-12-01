@@ -1,0 +1,11 @@
+form {
+    margin: 5%;
+    flex-direction: row;
+    max-width: 70%;
+}
+.center {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
