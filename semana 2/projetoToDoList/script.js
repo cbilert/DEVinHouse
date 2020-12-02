@@ -2,9 +2,6 @@ var btnAdd      = document.getElementById('btnAdd');
 var txtActivity = document.getElementById('txtActivity');
 var ulLista     = document.getElementById('ulLista');
 
-var chkItem1     = document.getElementById('chkItem_1');//teste
-var txtItem1     = document.getElementById('txtItem_1');//teste
-
 var chkItem = [];
 var txtItem = [];
 var itens   = [];
@@ -35,7 +32,7 @@ function criarContainer(value, idItem) {
     var text = criarInput('text', 'form-control form-control-lg', `txtItem_${idItem}`, value);
     var divContainer3 = criarDIV('input-group-append');
     var span2 = criaSpan('input-group-text');
-    var btnRemove = criarButton('button','btn btn-warning btn-sm', `btnRemove_${idItem}`,'x');
+    var btnRemove = criarButton('button','btn btn-secondary btn-sm', `btnRemove_${idItem}`,'x');
 
     checkBox.addEventListener('click', function(){
         checkItem(checkBox,text);
@@ -93,10 +90,7 @@ function criarDIV(classe) {
     return div;
 }
 
-function checkItem(chkItem, txtItem){
-    console.log('chkItem: ',chkItem);
-    console.log('txtItem: ',txtItem);
-
+function checkItem(chkItem, txtItem) {
     if (chkItem.checked) {
         txtItem.classList.add('tachado');
     } else {
@@ -104,17 +98,4 @@ function checkItem(chkItem, txtItem){
     }
 }
 
-function checkItem1(teste){//teste
-    console.log(teste);
-    if (chkItem1.checked) {
-        txtItem1.classList.add('tachado');
-    } else {
-        txtItem1.classList.remove('tachado');
-    }
-}
-
 btnAdd.addEventListener('click', adicionar);
-
-chkItem1.addEventListener('click', function(){
-    checkItem1('asdf');
-} ,false);//teste
