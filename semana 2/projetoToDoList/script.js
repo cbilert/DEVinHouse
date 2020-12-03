@@ -1,42 +1,45 @@
 var btnAdd      = document.getElementById('btnAdd');
 var txtActivity = document.getElementById('txtActivity');
 var ulLista     = document.getElementById('ulLista');
-
-var chkItem = [];
-var txtItem = [];
 var itens   = [];
+loadLista();
 
 function adicionar() {
-    var item = txtActivity.value;
-    if (item) {
+    var idItem = itens == null ? 0 : itens.length;
+    var item = {};
+    item.id = idItem;
+    item.value = txtActivity.value;
+    item.checked = false;
+    addItem(item);
+    if (item.value) {
         criarElementoLI(item);
     } else {
         alert('Por gentileza digite algo no campo de texto.');
+        txtActivity.focus();
     }
 }
 
-function criarElementoLI(itemValue) {
-    var idItem = itens == null ? 0 : itens.length;
-    console.log(`ID ITEM: ${idItem}`);
+function criarElementoLI(item) {
     var elementoLI = document.createElement('li');
     elementoLI.classList.add('list-group-item');
-    elementoLI.appendChild(criarContainer(itemValue, idItem))
+    elementoLI.appendChild(criarContainer(item))
     ulLista.appendChild(elementoLI);
 }
 
-function criarContainer(value, idItem) {
+function criarContainer(item) {
     var divContainer1 = criarDIV('input-group mb-3');
     var divContainer2 = criarDIV('input-group-prepend');
     var span1 = criaSpan('input-group-text');
-    var checkBox = criarInput('checkbox','',`chkItem_${idItem}`);
-    var text = criarInput('text', 'form-control form-control-lg', `txtItem_${idItem}`, value);
+    var checkBox = criarInput('checkbox','',`chkItem_${item.id}`,item.checked);
+    var text = criarInput('text', 'form-control form-control-lg', `txtItem_${item.id}`, item.value);
     var divContainer3 = criarDIV('input-group-append');
     var span2 = criaSpan('input-group-text');
-    var btnRemove = criarButton('button','btn btn-secondary btn-sm', `btnRemove_${idItem}`,'x');
+    var btnRemove = criarButton('button','btn btn-secondary btn-sm', `btnRemove_${item.id}`,'x');
 
     checkBox.addEventListener('click', function(){
-        checkItem(checkBox,text);
+        onCheckItem(checkBox,text);
     },false);
+    checkItem(checkBox,text);
 
     text.setAttribute('disabled',true);
 
@@ -68,7 +71,14 @@ function criarInput(type, classe, id, value) {
         input.className = classe;
     }
     if (value) {
-        input.value = value;
+        switch (type) {
+            case 'checkbox':
+                input.setAttribute('checked',value);
+                break;
+            default:
+                input.value = value;
+                break;
+        }
     }
     return input;
 }
@@ -98,4 +108,47 @@ function checkItem(chkItem, txtItem) {
     }
 }
 
+
+function onCheckItem(chkItem, txtItem) {
+    var item = itens.find(element => element.id == txtItem.id);
+    item.checked = chkItem.checked;
+
+    if (chkItem.checked) {
+        txtItem.classList.add('tachado');
+    } else {
+        txtItem.classList.remove('tachado');
+    }
+
+    itens.splice(item.id, 1, item);
+    salvarLS(itens);
+}
+
+function addItem(item) {
+    itens.push(item);
+    salvarLS(itens);
+    txtActivity.value = '';
+}
+
+function salvarLS(itens) {
+    localStorage.setItem('listaTarefas', JSON.stringify(itens));
+}
+
+function loadLista() {
+    var lista = JSON.parse(localStorage.getItem('listaTarefas'));
+    if (lista){
+        itens = lista;
+        for(var i = 0; i < lista.length; i++) {
+            criarElementoLI(lista[i]);
+        }
+    }
+}
+
+function seeKey(event) {
+    console.log(event);
+    if (event.key == 'Enter') {
+        adicionar();
+    }
+}
+
 btnAdd.addEventListener('click', adicionar);
+txtActivity.addEventListener('keyup', seeKey);
