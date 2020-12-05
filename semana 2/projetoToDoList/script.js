@@ -88,6 +88,7 @@ function criarInput(type, classe, id, value) {
                 break;
             default:
                 input.value = value;
+                input.title = value;
                 break;
         }
     }
@@ -126,12 +127,6 @@ function onCheckItem(chkItem, txtItem) {
     item.checked = chkItem.checked;
 
     checkItem(chkItem, txtItem);
-    // if (chkItem.checked) {
-    //     chkItem.setAttribute('disabled',true);
-    //     txtItem.classList.add('tachado');
-    // } else {
-    //     txtItem.classList.remove('tachado');
-    // }
 
     if(item.id == itens.length) {
         itens.pop();

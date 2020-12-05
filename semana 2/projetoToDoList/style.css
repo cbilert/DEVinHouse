@@ -1,16 +1,18 @@
-.tachado {
+html, body{
+    height: 100%;
+ }
+ .tachado {
     text-decoration: line-through;
 }
 
-.jumbotron  {
+.jumbotron {
     background-color: #ffeb3b2b;
+    /* background-color: rgb(236, 219, 193); */
+    
 }
 
-
-#ulLista {
-    max-height: 55%;
-    overflow-y: auto !important;
-
+.btn-primary {
+    background-color: rgb(237, 114, 65);
 }
 
 @media (max-width: 768px) {
@@ -19,4 +21,8 @@
         display: block;
         width: 100%;
     }
-  }
+}
+
+html::-webkit-scrollbar {
+    width: 0px;
+}

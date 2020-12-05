@@ -15,26 +15,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 p-3">                
-                <div class="jumbotron">
-                    <div class="page-header" aria-label="Cabeçalho CheckList Tarefas">
-                        <h1 ar>CheckList Tarefas <img src="check-list.svg" width="32px" alt="" srcset="">  </h1>
-                    </div>
-                    <hr class="my-4">
-                    <div class="form-group mb-2">
-                        <label aria-label="Item" class="sr-only" for="txtActivity">Item</label>
-                        <input type="text" class="form-control mb-2 mr-sm-2 form-control-lg" id="txtActivity" placeholder="Item">
-                    </div>
-                    <div class="form-group mb-2">
-                        <button aria-label="Adicionar" type="button" id="btnAdd" class="btn btn-primary btn-lg">Adicionar</button>
-                    </div>
+    <div class="container h-100">
+        <div class="row p-3 h-auto">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12 form jumbotron">
+                <header class="page-header" aria-label="Cabeçalho CheckList Tarefas">
+                    <h1 ar>CheckList Tarefas <img src="check-list.svg" width="32px" alt="" srcset="">  </h1>
+                </header>
+                <hr class="my-4">
+                <div class="form-group mb-2">
+                    <label aria-label="Item" class="sr-only" for="txtActivity">Item</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2 form-control-lg" id="txtActivity" placeholder="Item">
+                </div>
+                <div class="form-group mb-2">
+                    <button aria-label="Adicionar" type="button" id="btnAdd" class="btn btn-primary btn-lg" title="Adiciona item á lista">Adicionar</button>
                 </div>
             </div>
         </div>
-        <div class="row fill">
-            <div class="col-sm-12 col-md-12 col-lg-12 lista">
+        <div class="row p-3 h-50" style="overflow: auto;">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                 <ul aria-label="Lista de Tarefas" class="list-group" id="ulLista"></ul>
             </div>
         </div>
