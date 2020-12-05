@@ -38,6 +38,11 @@ function criarContainer(item) {
     var span2 = criaSpan('input-group-text');
     var btnRemove = criarButton('button','btn btn-secondary btn-sm', `btnRemove_${item.id}`,'x');
 
+    span1.setAttribute('aria-label','Armazena checkbox da tarefa');
+    span2.setAttribute('aria-label','Botão Excluir tarefa');
+    text.setAttribute('disabled',true);
+    text.setAttribute('aria-label','Armazena descrição da tarefa');
+
     checkBox.addEventListener('click', function(){
         onCheckItem(checkBox,text);
     }, false);
@@ -48,7 +53,6 @@ function criarContainer(item) {
 
     checkItem(checkBox,text);
 
-    text.setAttribute('disabled',true);
 
     span2.appendChild(btnRemove);
     divContainer3.appendChild(span2);
@@ -126,7 +130,12 @@ function onCheckItem(chkItem, txtItem) {
         txtItem.classList.remove('tachado');
     }
 
-    itens.splice(item.id, 1, item);
+    if(item.id == itens.length) {
+        itens.pop();
+        itens.push(item);
+    } else {
+        itens.splice(item.id, 1, item);
+    }
     salvarLS(itens);
 }
 
