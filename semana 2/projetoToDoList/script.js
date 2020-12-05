@@ -10,13 +10,15 @@ function adicionar() {
     item.id = idItem;
     item.value = txtActivity.value;
     item.checked = false;
-    addItem(item);
-    if (item.value) {
-        criarElementoLI(item);
-    } else {
-        alert('Por gentileza digite algo no campo de texto.');
-        txtActivity.focus();
-    }
+    if (addItem(item)){
+        if (item.value) {
+            criarElementoLI(item);
+            txtActivity.value = '';
+        } else {
+            alert('Por gentileza digite algo no campo de texto.');
+        }
+    }    
+    txtActivity.focus();
 }
 
 function criarElementoLI(item) {
@@ -129,9 +131,16 @@ function onCheckItem(chkItem, txtItem) {
 }
 
 function addItem(item) {
-    itens.push(item);
-    salvarLS(itens);
-    txtActivity.value = '';
+    let it = itens.find(element => element.value == item.value);
+    if (!it) {
+        itens.push(item);
+        salvarLS(itens);
+        return true;
+    } else {
+        alert('Já foi encontrado um item com essa descrição!');
+        return false;
+    }
+
 }
 
 function buscaItem(txtItem) {
