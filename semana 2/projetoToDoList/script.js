@@ -131,8 +131,9 @@ function onCheckItem(chkItem, txtItem) {
 }
 
 function addItem(item) {
-    let it = itens.find(element => element.value == item.value);
-    if (!it) {
+    let it = itens.find(element => element.value == item.value && element.checked == false);
+    console.log(it);
+    if (!it || (it && it.checked == true)) {
         itens.push(item);
         salvarLS(itens);
         return true;
@@ -163,8 +164,8 @@ function loadLista() {
     var lista = JSON.parse(localStorage.getItem('listaTarefas'));
     if (lista){
         itens = lista;
-        for(var i = 0; i < lista.length; i++) {
-            criarElementoLI(lista[i]);
+        for(var indice = 0; indice < lista.length; indice++) {
+            criarElementoLI(lista[indice]);
         }
     }
 }
