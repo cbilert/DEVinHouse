@@ -13,17 +13,18 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="jumbotron">
             <header>
-                <h1>CheckList</h1>
+                <h1>CheckList Tarefas</h1>
             </header>
             <hr class="my-4">
-            <div class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                    <input type="text" class="form-control form-control-lg" id="txtActivity" placeholder="Item">
-                </div>
-                <button type="button" id="btnAdd" class="btn btn-primary mb-2 btn-lg">Adicionar</button>
+            <div class="form-group mb-2">
+                <label class="sr-only" for="txtActivity">Item</label>
+                <input type="text" class="form-control mb-2 mr-sm-2 form-control-lg" id="txtActivity" placeholder="Item">
+            </div>
+            <div class="form-group mb-2">
+                <button type="button" id="btnAdd" class="btn btn-primary btn-lg">Adicionar</button>
             </div>
         </div>
         <hr class="my-4">

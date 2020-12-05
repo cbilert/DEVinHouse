@@ -38,7 +38,12 @@ function criarContainer(item) {
 
     checkBox.addEventListener('click', function(){
         onCheckItem(checkBox,text);
-    },false);
+    }, false);
+
+    btnRemove.addEventListener('click', function() {
+        onRemoveItem(text);
+    }, false);
+
     checkItem(checkBox,text);
 
     text.setAttribute('disabled',true);
@@ -110,7 +115,7 @@ function checkItem(chkItem, txtItem) {
 
 
 function onCheckItem(chkItem, txtItem) {
-    var item = itens.find(element => element.id == txtItem.id);
+    var item = buscaItem(txtItem);
     item.checked = chkItem.checked;
 
     if (chkItem.checked) {
@@ -129,6 +134,18 @@ function addItem(item) {
     txtActivity.value = '';
 }
 
+function buscaItem(txtItem) {
+    return itens.find(element => element.id == txtItem.id.split('txtItem_')[1]);
+}
+
+function onRemoveItem(txtItem){
+    let item  = buscaItem(txtItem);
+    itens.splice(itens.indexOf(item), 1);
+    salvarLS(itens);
+    ulLista.innerHTML ='';
+    loadLista();
+}
+
 function salvarLS(itens) {
     localStorage.setItem('listaTarefas', JSON.stringify(itens));
 }
@@ -144,7 +161,6 @@ function loadLista() {
 }
 
 function seeKey(event) {
-    console.log(event);
     if (event.key == 'Enter') {
         adicionar();
     }
