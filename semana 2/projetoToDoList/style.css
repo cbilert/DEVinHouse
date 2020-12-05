@@ -7,6 +7,12 @@
 }
 
 
+#ulLista {
+    max-height: 55%;
+    overflow-y: auto !important;
+
+}
+
 @media (max-width: 768px) {
     .btn {
         text-align: center;

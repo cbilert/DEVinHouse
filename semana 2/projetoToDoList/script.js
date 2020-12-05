@@ -113,7 +113,8 @@ function criarDIV(classe) {
 
 function checkItem(chkItem, txtItem) {
     if (chkItem.checked) {
-        txtItem.classList.add('tachado');
+        chkItem.setAttribute('disabled',true);
+        txtItem.classList.add('tachado');    
     } else {
         txtItem.classList.remove('tachado');
     }
@@ -124,11 +125,13 @@ function onCheckItem(chkItem, txtItem) {
     var item = buscaItem(txtItem);
     item.checked = chkItem.checked;
 
-    if (chkItem.checked) {
-        txtItem.classList.add('tachado');
-    } else {
-        txtItem.classList.remove('tachado');
-    }
+    checkItem(chkItem, txtItem);
+    // if (chkItem.checked) {
+    //     chkItem.setAttribute('disabled',true);
+    //     txtItem.classList.add('tachado');
+    // } else {
+    //     txtItem.classList.remove('tachado');
+    // }
 
     if(item.id == itens.length) {
         itens.pop();
@@ -141,7 +144,6 @@ function onCheckItem(chkItem, txtItem) {
 
 function addItem(item) {
     let it = itens.find(element => element.value == item.value && element.checked == false);
-    console.log(it);
     if (!it || (it && it.checked == true)) {
         itens.push(item);
         salvarLS(itens);

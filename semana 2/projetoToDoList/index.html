@@ -15,22 +15,29 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <header aria-label="Cabeçalho CheckList Tarefas">
-                <h1 ar>CheckList Tarefas <img src="check-list.svg" width="32px" alt="" srcset="">  </h1>
-            </header>
-            <hr class="my-4">
-            <div class="form-group mb-2">
-                <label aria-label="Item" class="sr-only" for="txtActivity">Item</label>
-                <input type="text" class="form-control mb-2 mr-sm-2 form-control-lg" id="txtActivity" placeholder="Item">
-            </div>
-            <div class="form-group mb-2">
-                <button aria-label="Adicionar" type="button" id="btnAdd" class="btn btn-primary btn-lg">Adicionar</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 p-3">                
+                <div class="jumbotron">
+                    <div class="page-header" aria-label="Cabeçalho CheckList Tarefas">
+                        <h1 ar>CheckList Tarefas <img src="check-list.svg" width="32px" alt="" srcset="">  </h1>
+                    </div>
+                    <hr class="my-4">
+                    <div class="form-group mb-2">
+                        <label aria-label="Item" class="sr-only" for="txtActivity">Item</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2 form-control-lg" id="txtActivity" placeholder="Item">
+                    </div>
+                    <div class="form-group mb-2">
+                        <button aria-label="Adicionar" type="button" id="btnAdd" class="btn btn-primary btn-lg">Adicionar</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <hr class="my-4">
-        <ul aria-label="Lista de Tarefas" class="list-group" id="ulLista"></ul>
+        <div class="row fill">
+            <div class="col-sm-12 col-md-12 col-lg-12 lista">
+                <ul aria-label="Lista de Tarefas" class="list-group" id="ulLista"></ul>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
@@ -44,5 +51,4 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
