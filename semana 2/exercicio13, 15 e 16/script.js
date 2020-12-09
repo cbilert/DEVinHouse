@@ -1,20 +1,28 @@
 let btnAdd = document.getElementById('btnAdd');
-var txtItem = document.getElementById('txtItem');
+let txtItem = document.getElementById('txtItem');
 let selLista = document.getElementById('selLista');
 txtItem.focus();
-let listaMercado = {}
+let listaMercado = [ ];
+loadLista();
+
+function loadLista() {
+    let lista = JSON.parse(localStorage.getItem('listaMercado'));
+    lista.forEach(itemText => {
+        criarElementoLista(itemText);
+    });
+}
 
 
 function adicionar() {
     let itemMercado = txtItem.value;
     if (itemMercado) {
         criarElementoLista(itemMercado);
-        salvarNoLocalStorage(itemMercado);
-        txtItem.value = '';
-        txtItem.focus();
+        salvarNoLocalStorage(itemMercado);        
     } else {
         alert('Por gentileza digite algo no campo de texto.');
     }
+    txtItem.value = '';
+    txtItem.focus();
 }
 
 function criarElementoLista(itemText) {
