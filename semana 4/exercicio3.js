@@ -7,13 +7,13 @@ const pessoas = [
       profissao: 'Governante'
     },
     {
-      tipo: 'Lobisomem',
+      nome: 'Lobisomem',
       idade: 80,
       telefone: 48987465432,
       profissao: 'Governante'
     },
     {
-      tipo: 'Ogro',
+      nome: 'Ogro',
       idade: 4,
       telefone: 48987465432,
       profissao: 'Programador'
