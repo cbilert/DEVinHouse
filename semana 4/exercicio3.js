@@ -25,7 +25,7 @@ function executar(){
     console.log(buscaMaiorDeIdade(pessoas));
 }
 
-const buscaMaiorDeIdade = pess => pessoas.filter(pessoa => pessoa.idade >= 18);
+const buscaMaiorDeIdade = pess => pess.filter(pessoa => pessoa.idade >= 18);
 
 
 
