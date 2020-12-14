@@ -5,13 +5,20 @@
 let exercicio10 = document.getElementById('exercicio10');
 
 function executar(){    
-    somarValores(100,10)
+    somarValores(100,11)
     .then(resultado => {console.log("Resultado: ", resultado); document.getElementById('resultado').value = resultado;})
     .catch(mensagem => console.log('Catch: ', mensagem));
 }
 function somarValores(a,b) {
     return new Promise((resolve,reject) => {
-        setTimeout(() => {resolve(a+b)}, 5000);
+        setTimeout(() => {
+            let result = a+b;
+            if(result % 2 == 0){
+                resolve(result);
+            } else {
+                reject(result);
+            }
+        }, 5000);
     })
 }
 
