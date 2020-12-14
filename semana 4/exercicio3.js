@@ -16,7 +16,7 @@ const pessoas = [
       tipo: 'Ogro',
       idade: 4,
       telefone: 48987465432,
-      profissao: 'Governante'
+      profissao: 'Programador'
     }
   ]
 
