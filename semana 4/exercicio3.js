@@ -21,7 +21,8 @@ const pessoas = [
   ]
 
 function executar(){    
-    document.getElementById('resultado').value = buscaMaiorDeIdade(pessoas);
+    document.getElementById('resultado').value = JSON.stringify(buscaMaiorDeIdade(pessoas));
+    console.log(buscaMaiorDeIdade(pessoas));
 }
 
 const buscaMaiorDeIdade = pess => pessoas.filter(pessoa => pessoa.idade >= 18);
