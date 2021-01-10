@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import './Listagem.css';
 class Listagem extends Component {
+
+    handleEditar(aluno) {
+        this.props.editar(aluno);
+    }
+
+    handleExcluir(aluno){
+        this.props.excluir(aluno);
+    }
+
     render() {
         if(!this.props.alunos || this.props.alunos.length === 0) {
             return (<span>Não existem alunos a serem listados</span>)
@@ -23,7 +32,7 @@ class Listagem extends Component {
                             </thead>
                             <tbody>
                                 {this.props.alunos.map(aluno => (
-                                    <tr key={aluno.nome}>
+                                    <tr key={aluno.id}>
                                         <td>{aluno.nome}</td>
                                         <td>{aluno.dtNasc}</td>
                                         <td>{aluno.turma}</td>
