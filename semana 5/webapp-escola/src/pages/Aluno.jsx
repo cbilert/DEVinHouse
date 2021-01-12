@@ -3,6 +3,7 @@ import EstruturaDaPagina from '../components/EstruturaDaPagina';
 import Section from '../components/Section';
 import Listagem from '../aluno/Listagem';
 import AlunosService from '../services/alunosService';
+import CadastroAlunos from '../aluno/Cadastro';
 
 class Aluno extends Component {
     constructor(props) {
@@ -23,7 +24,6 @@ class Aluno extends Component {
     
     async carregarAlunos() {
         const alunos = await AlunosService.buscar();
-        console.log(alunos);
         this.setState({ alunos: alunos });
     }
 
@@ -56,11 +56,7 @@ class Aluno extends Component {
             <React.Fragment>
                 <EstruturaDaPagina title="Escola Amorinha">
                     <Section titulo="Cadastro de Alunos">
-                        <>
-                            {this.state.alunoEmEdicao &&
-                                <span>Aluno em Edição: {this.state.alunoEmEdicao.nome}</span>}
-                        </>
-                        
+                        <CadastroAlunos aluno={this.state.alunoEmEdicao} salvar={this.salvar}/>
                     </Section>
                     <Section titulo="Listagem de Alunos">
                         <Listagem 

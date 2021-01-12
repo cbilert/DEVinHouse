@@ -1,5 +1,8 @@
+import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import React, { Component } from 'react';
-import './Listagem.css';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit' ;
+
 class Listagem extends Component {
 
     handleEditar(aluno) {
@@ -18,33 +21,48 @@ class Listagem extends Component {
         return (
             <>
                 {this.props.alunos && this.props.alunos.length > 0 &&
-                    <div className="listagem">
-                        <table className="tabela-alunos">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Data Nasc.</th>
-                                    <th>Turma</th>
-                                    <th>Tel. Emergência</th>
-                                    <th>Avisar</th>
-                                    <th className="acoes" colSpan="2">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.props.alunos.map(aluno => (
-                                    <tr key={aluno.id}>
-                                        <td>{aluno.nome}</td>
-                                        <td>{aluno.dtNasc}</td>
-                                        <td>{aluno.turma}</td>
-                                        <td>{aluno.telEmergencia}</td>
-                                        <td>{aluno.emergenciaAvisar}</td>
-                                        <td className="acoes"><button onClick={e => this.handleEditar(aluno)}>Editar</button></td>
-                                        <td className="acoes"><button onClick={e => this.handleExcluir(aluno)}>Excluir</button></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                    <Grid container>
+                        <Grid item xs={11}>
+                            <TableContainer component={Paper}>
+                                <Table size="small" stickyHeader>
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell>Nome</TableCell>
+                                            <TableCell>Data Nasc.</TableCell>
+                                            <TableCell>Turma</TableCell>
+                                            <TableCell>Tel. Emergência</TableCell>
+                                            <TableCell>Avisar</TableCell>
+                                            <TableCell className="acoes" colSpan="2">Ações</TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {this.props.alunos.map(aluno => (
+                                            <TableRow 
+                                                key={aluno.id}
+                                                hover
+                                            >
+                                                <TableCell width="25%">{aluno.nome}</TableCell>
+                                                <TableCell>{aluno.dtNascimento}</TableCell>
+                                                <TableCell>{aluno.turma}</TableCell>
+                                                <TableCell>{aluno.telEmergencia}</TableCell>
+                                                <TableCell width="20%">{aluno.emergenciaAvisar}</TableCell>
+                                                <TableCell>
+                                                    <IconButton color="primary" onClick={() => this.handleEditar(aluno)}>
+                                                        <EditIcon/>
+                                                    </IconButton>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <IconButton onClick={() => this.handleExcluir(aluno)}>
+                                                        <DeleteIcon/>
+                                                    </IconButton>
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Grid>
+                    </Grid>
                 }
             </>
         )
