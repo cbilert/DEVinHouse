@@ -2,10 +2,10 @@ import React from 'react';
 import { Component } from 'react';
 import { Field, Form, Formik } from 'formik';
 import * as yup from 'yup';
-import { Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
+import { Button, Grid, TextField } from '@material-ui/core';
 import { KeyboardDatePicker,MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import CheckBoxSwitch from '../components/CheckBoxSwitch';
+import SwitchLabel from '../components/SwitchLabel';
 
 
 const ALUNO_INICIAL= {
@@ -40,7 +40,7 @@ const ALUNO_SCHEMA = yup.object().shape({
 
 class CadastroAlunos extends Component {
 
-    state = { teveAlteracao: false, checked:false }
+    state = { teveAlteracao: false }
     
     salvar = (aluno, actions) => {
         actions.setSubmitting(true);
@@ -96,7 +96,7 @@ class CadastroAlunos extends Component {
                                     helpertext={touched.responsavel && errors.responsavel}
                                 />
                             </Grid>
-                            <Grid item container xs={11} justify="center" alignItems="center">
+                            <Grid item container xs={12} spacing={3} justify="center" alignItems="center">
                                 <Grid item xs={12} sm={6} md={3}>
                                     <MuiPickersUtilsProvider utils={DateFnsUtils}>                                
                                     <Field 
@@ -173,25 +173,20 @@ class CadastroAlunos extends Component {
                                 />
                             </Grid>
                             <Grid item xs={11}>
-                                <FormControlLabel
-                                    control={
-                                        <Field
-                                            component={Checkbox}
-                                            name="autorizaFotoVideoUsoEscolar"
-                                            value={!values.autorizaFotoVideoUsoEscolar}
-                                            checked={values.autorizaFotoVideoUsoEscolar}
-                                            color="primary"
-                                            onFocus={ () => setFieldTouched('autorizaFotoVideoUsoEscolar') }
-                                            onChange={ e => this.handleChange('autorizaFotoVideoUsoEscolar', e.target.checked, setFieldValue)}
-                                            error={touched.autorizaFotoVideoUsoEscolar && errors.autorizaFotoVideoUsoEscolar}
-                                            helpertext={touched.autorizaFotoVideoUsoEscolar && errors.autorizaFotoVideoUsoEscolar}
-                                            />
-                                    }
+                                <SwitchLabel
+                                    name="autorizaFotoVideoUsoEscolar"
+                                    value={!values.autorizaFotoVideoUsoEscolar}
+                                    checked={values.autorizaFotoVideoUsoEscolar}
+                                    color="primary"
+                                    onFocus={ () => setFieldTouched('autorizaFotoVideoUsoEscolar') }
+                                    onChange={ e => this.handleChange('autorizaFotoVideoUsoEscolar', e.target.checked, setFieldValue)}
+                                    error={touched.autorizaFotoVideoUsoEscolar && errors.autorizaFotoVideoUsoEscolar}
+                                    helpertext={touched.autorizaFotoVideoUsoEscolar && errors.autorizaFotoVideoUsoEscolar}
                                     label="Autoriza uso de fotos e videos para uso escolar"
                                 />
                             </Grid>
                             <Grid item xs={11}>
-                                <CheckBoxSwitch 
+                                <SwitchLabel 
                                     label="Possui Restrição Alimentar - Meu Componente"
                                     name="possuiRestricaoAlimentar"
                                     checked={values.possuiRestricaoAlimentar}

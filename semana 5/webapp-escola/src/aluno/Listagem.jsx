@@ -2,15 +2,28 @@ import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, T
 import React, { Component } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit' ;
+import Filtro from '../components/Filtro';
 
 class Listagem extends Component {
 
+    state = {filtroAluno:''};
+    
     handleEditar(aluno) {
         this.props.editar(aluno);
     }
 
     handleExcluir(aluno){
         this.props.excluir(aluno);
+    }
+    
+    handleFilter = (filtroAluno) => {
+        this.setState({filtroAluno:filtroAluno});
+    }
+    
+    callbackFilter = (listaRetorno) => {
+        console.log("callBackReturn: ",listaRetorno);
+        this.setState({alunos : listaRetorno});
+        console.log(this.props.alunos);
     }
 
     render() {
@@ -21,10 +34,22 @@ class Listagem extends Component {
         return (
             <>
                 {this.props.alunos && this.props.alunos.length > 0 &&
-                    <Grid container>
-                        <Grid item xs={11}>
+                    <Grid container spacing={3}>
+                        <Grid item container xs={11} >
+                            <Filtro 
+                                value={this.state.filtroAluno}
+                                name="filtroAluno"
+                                label="Pesquisar"
+                                lista={this.props.alunos}
+                                onChange={ e => {this.handleFilter(e.target.value)}}
+                                callbackFilter={this.callbackFilter}
+                            />
+                        </Grid>
+                        <Grid item container xs={11} >
                             <TableContainer component={Paper}>
-                                <Table size="small" stickyHeader>
+                                <Table 
+                                    size="small" 
+                                    stickyHeader>
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>Nome</TableCell>

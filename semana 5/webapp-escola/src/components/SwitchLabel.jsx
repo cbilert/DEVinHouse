@@ -2,7 +2,7 @@ import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-const CheckBoxSwitch = props => {
+const SwitchLabel = props => {
     const {label, name, checked, color, onChange, onFocus, error, helperText} = props;
     
   return (
@@ -21,4 +21,4 @@ const CheckBoxSwitch = props => {
       />
   );
 }
-export default CheckBoxSwitch;
+export default SwitchLabel;
