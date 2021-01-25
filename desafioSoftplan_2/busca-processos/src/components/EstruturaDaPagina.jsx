@@ -1,0 +1,17 @@
+import React from 'react';
+
+class EstruturaDaPagina extends React.Component {
+
+    render() {
+        return (
+            <div className="mainPage">
+                <div className="header">
+                    <h2>{this.props.title}</h2>
+                </div>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+export default EstruturaDaPagina;
